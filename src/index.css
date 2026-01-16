@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import "tailwindcss";
+
+:root {
+  font-family: "Anonymous Pro", monospace;
+
+  background-color: #0D0D0D;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@theme {
+  --color-background: #0D0D0D;
+  --color-text: #FFFFFF;
+  --color-stroke: #242424;
+  --color-card-bg: rgba(255, 255, 255, 0.02);
+  --color-card-bg-hover: rgba(255, 255, 255, 0.05);
+  --color-accent: #9D2ADF;
+
+  --font-krona: "Krona One", sans-serif;
+}
+
+@keyframes marquee-slow {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-slow {
+  animation: marquee-slow 20s linear infinite;
+}
+
+@media (min-width: 768px) {
+  .animate-marquee-slow {
+    animation: none;
+  }
+}
+
+.dot {
+  animation: radius-pulse 2.6s infinite ease-in-out;
+  transform-origin: center;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.35s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+@keyframes radius-pulse {
+
+  0%,
+  100% {
+    r: 9.5;
+    opacity: 0.5;
+  }
+
+  50% {
+    r: 11.5;
+    opacity: 1;
+  }
+}
