@@ -49,7 +49,6 @@ export const Scope = () => {
                         <Bubble
                             text={text}
                             className="
-                font-medium
                 text-[16px]
                 md:text-[18px]
                 lg:text-[20px]

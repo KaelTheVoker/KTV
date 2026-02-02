@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import { Experience } from "../components/sections/Experience"
 import { GetInTouch } from "../components/sections/GetInTouch"
 import { Hero } from "../components/sections/Hero"
@@ -7,55 +6,10 @@ import { Scope } from "../components/sections/Scope"
 import { Tools } from "../components/sections/Tools"
 
 export const MainPage = () => {
-    const [fontsLoaded, setFontsLoaded] = useState(false)
-
-    useEffect(() => {
-        document.fonts.ready
-            .then(() => {
-                const timer = setTimeout(() => {
-                    setFontsLoaded(true)
-                }, 120)
-
-                return () => clearTimeout(timer)
-            })
-            .catch((err) => {
-                console.warn('document.fonts.ready rejected:', err)
-                const fallbackTimer = setTimeout(() => {
-                    setFontsLoaded(true)
-                }, 2500)
-
-                return () => clearTimeout(fallbackTimer)
-            })
-    }, [])
 
     return (
         <>
             <div
-                className={`
-          fixed inset-0 z-9999
-          flex items-center justify-center
-          bg-background
-          transition-opacity duration-700
-          ${fontsLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}
-        `}
-            >
-                <svg
-                    className="w-32 h-12 md:w-40 md:h-16 text-white/20 scale-200"
-                    viewBox="0 0 120 40"
-                    fill="currentColor"
-                >
-                    <circle className="dot" cx="20" cy="20" r="10" />
-                    <circle className="dot" cx="60" cy="20" r="10" />
-                    <circle className="dot" cx="100" cy="20" r="10" />
-                </svg>
-            </div>
-
-            <div
-                className={`
-          min-h-screen
-          transition-opacity duration-200
-          ${fontsLoaded ? 'opacity-100' : 'opacity-0'}
-        `}
             >
                 <div className="flex flex-col items-center justify-center overflow-hidden">
                     <div className="text-text w-[85%] max-w-7xl px-4 sm:px-6 lg:px-8">
